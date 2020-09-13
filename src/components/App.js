@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import Current from "./Current";
 import Hourly from "./Hourly";
+import Daily from "./Daily";
 
 function App() {
   const [weatherObj, setWeatherObj] = useState();
@@ -35,6 +36,7 @@ function App() {
       <div>
         <Current weatherObj={weatherObj} />
         <Hourly weatherObj={weatherObj} />
+        <Daily weatherObj={weatherObj} />
       </div> :
       "Loading..."}      
     </div>

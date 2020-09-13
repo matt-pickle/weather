@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 
-function HourDisplay(props) {  
+function DayDisplay(props) {  
   const [description, setDescription] = useState("");
   const now = new Date(props.dt * 1000);
   const day = now.getDay();
@@ -11,11 +11,8 @@ function HourDisplay(props) {
                 : day === 4 ? "Thursday"
                 : day === 5 ? "Friday"
                 : "Saturday";
-  const hour = now.getHours();
-  const hourConverted = hour > 12 ? hour - 12
-                      : hour === 0 ? 12
-                      : hour;
-  const ampm = now.getHours() < 12 ? "am" : "pm";
+  const month = now.getMonth() + 1;
+  const date = now.getDate();
   
   useEffect(() => {
     //Creates weather description string
@@ -29,11 +26,11 @@ function HourDisplay(props) {
   }, []);
 
   return (
-    <div className="hour-display-container">
-      <h2>{weekDay}, {hourConverted}{ampm}</h2>
-      <p>Temp: {Math.round(props.temp)}&deg;F</p>
+    <div className="day-display-container">
+      <h2>{weekDay}, {month}-{date}</h2>
+      <p>High: {Math.round(props.max)}&deg;F</p>
+      <p>Low: {Math.round(props.min)}&deg;F</p>
       <p>Conditions: {description}</p>
-      <p>Feels Like: {Math.round(props.feels_like)}&deg;F</p>
       <p>Rain Chance: {Math.round(props.pop)}%</p>
       <p>Humidity: {props.humidity}%</p>
       <p>Wind Speed: {Math.round(props.wind_speed)}mph</p>
@@ -41,4 +38,4 @@ function HourDisplay(props) {
   );
 }
 
-export default HourDisplay;
+export default DayDisplay;
