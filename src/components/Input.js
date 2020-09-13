@@ -8,6 +8,11 @@ function Input(props) {
     setZip(event.target.value);
   }
 
+  function handleSubmit() {
+    props.handleZipSubmit(zip);
+    setZip("");
+  }
+
   return (
     <div className="input-container">
       <label htmlFor="zip-input" className="zip-label">Enter your Zip code (USA only)</label>
@@ -17,7 +22,7 @@ function Input(props) {
              onChange={handleChange}
       />
       <Button text="Submit"
-              onClick={() => props.handleZipSubmit(zip)}
+              onClick={handleSubmit}
       />
     </div>
   );

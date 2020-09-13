@@ -12,6 +12,7 @@ function Hourly(props) {
                         pop={hour.pop}
                         humidity={hour.humidity}
                         wind_speed={hour.wind_speed}
+                        key={hour.dt}
            />
   });
   

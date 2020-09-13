@@ -13,6 +13,7 @@ function Daily(props) {
                        pop={day.pop}
                        humidity={day.humidity}
                        wind_speed={day.wind_speed}
+                       key={day.dt}
            />
   });
   
