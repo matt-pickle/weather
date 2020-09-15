@@ -18,7 +18,7 @@ function Hourly(props) {
   
   return (
     <div className="hourly-container">
-      <h1>Hourly Weather</h1>
+      <h1 className="section-title">Hourly Forecast</h1>
       {hourDisplays}
     </div>
   );

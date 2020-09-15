@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import Background from "./Background";
 import Input from "./Input";
 import Current from "./Current";
 import Hourly from "./Hourly";
@@ -31,6 +32,7 @@ function App() {
 
   return (
     <div className="app">
+      <Background weatherObj={weatherObj} />
       <Input handleZipSubmit={handleZipSubmit} />
       {
       weatherObj ?
