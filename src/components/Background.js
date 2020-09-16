@@ -7,8 +7,11 @@ function Background(props) {
     if (props.weatherObj) {
       const current = props.weatherObj.current;
       //Checks for night time
-      const now = new Date() * 1000;
-      if (now < current.sunrise || now === current.sunset) {
+      const now = new Date() / 1000;
+      console.log("now: " + now);
+      console.log("sunrise: " + current.sunrise);
+      console.log("sunset: " + current.sunset);
+      if (now < current.sunrise || now > current.sunset) {
         setBackground("night");
       } else {
         //Creates array of current weather conditions
