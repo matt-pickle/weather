@@ -18,7 +18,7 @@ function Background(props) {
         });
         //Selects background image based on current weather conditions
         conditionArr.includes("Snow") ? setBackground("snow")
-        : conditionArr.includes("Thunderstorm" || "Squall" || "Torndado") ? setBackground("thunderstorm")
+        : conditionArr.includes("Thunderstorm" || "Squall" || "Tornado") ? setBackground("thunderstorm")
         : conditionArr.includes("Drizzle" || "Rain") ? setBackground("rain")
         : conditionArr.includes(802 || 803) ? setBackground("partly-cloudy")
         : conditionArr.includes(804 || "Fog") ? setBackground("cloudy")
