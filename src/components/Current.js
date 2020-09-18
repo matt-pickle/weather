@@ -26,12 +26,12 @@ function Current(props) {
     }
     //Selects icon based on current weather conditions
     conditionArr.includes("Snow") ? setIcon("snow.png")
-    : conditionArr.includes("Thunderstorm" || "Squall" || "Tornado") ? setIcon("thunderstorm.png")
-    : conditionArr.includes("Drizzle" || "Rain") ? setIcon("rain.png")
+    : conditionArr.some(el => el === "Thunderstorm" || el === "Squall" || el === "Tornado") ? setIcon("thunderstorm.png")
+    : conditionArr.some(el => el === "Drizzle" || el === "Rain") ? setIcon("rain.png")
     : conditionArr.includes("Night") ? setIcon("night.png")
-    : conditionArr.includes(802 || 803) ? setIcon("partly-cloudy.png")
-    : conditionArr.includes(804 || "Fog") ? setIcon("cloudy.png")
-    : conditionArr.includes("Clear" || 801) ? setIcon("sunny.png")
+    : conditionArr.some(el => el === 802 || el === 803) ? setIcon("partly-cloudy.png")
+    : conditionArr.some(el => el === 804 || el === "Fog") ? setIcon("cloudy.png")
+    : conditionArr.some(el => el === "Clear" || el === 801) ? setIcon("sunny.png")
     : setIcon("");
   }, []);
   
