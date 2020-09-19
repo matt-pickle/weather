@@ -35,7 +35,15 @@ function DayDisplay(props) {
     : conditionArr.some(el => el === "Thunderstorm" || el === "Squall" || el === "Tornado") ? setIcon("thunderstorm.png")
     : conditionArr.some(el => el === "Drizzle" || el === "Rain") ? setIcon("rain.png")
     : conditionArr.some(el => el === 802 || el === 803) ? setIcon("partly-cloudy.png")
-    : conditionArr.some(el => el === 804 || el === "Fog") ? setIcon("cloudy.png")
+    : conditionArr.some(el => el === 804 ||
+                              el === "Fog" ||
+                              el === "Smoke" ||
+                              el === "Mist" ||
+                              el === "Haze" ||
+                              el === "Dust" ||
+                              el === "Sand" ||
+                              el === "Ash") ?
+                              setIcon("cloudy.png")
     : conditionArr.some(el => el === "Clear" || el === 801) ? setIcon("sunny.png")
     : setIcon("");
   }, []);
