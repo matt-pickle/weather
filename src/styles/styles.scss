@@ -1,5 +1,8 @@
 //VARIABLES
 
+$background: rgba(0,0,0,0.5);
+$border: rgba(0,0,0,0.6);
+
 //GENERAL
 
 * {
@@ -8,12 +11,19 @@
 
 body {
   margin: 0;
+  font-family: "Ubuntu", sans-serif;
+  color: white;
   line-height: 1.6;
 }
 
 img {
   display: block;
   max-width: 100%;
+}
+
+.app {
+ display: flex;
+ flex-direction: column;
 }
 
 //BACKGROUND
@@ -55,6 +65,47 @@ img {
 .sunny {
   background-image: url("../images/sunny.jpg");
   background-position: top left;
+}
+
+//INPUT
+
+.input-container {
+  display: grid;
+  background-color: $background;
+  border: 2px solid $border;
+  border-radius: 10px;
+  width: 300px;
+  padding: 1em;
+  margin: 2em auto;
+}
+
+.zip-label {
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin: 0 0 .5em;
+}
+
+#zip-input {
+  font-size: 1rem;
+  text-align: center;
+  height: 2em;
+  border-radius: 5px;
+  margin: 0 0 1em;
+}
+
+.button {
+  font-size: 1rem;
+  font-weight: 700;
+  height: 2em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.hovered {
+  color: white;
+  background-color: rgba(0,0,0, 0.6);
 }
 
 //CURRENT
