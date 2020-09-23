@@ -3,6 +3,14 @@
 $background: rgba(0,0,0,0.5);
 $border: rgba(0,0,0,0.6);
 
+//MIXINS
+
+@mixin shaded-bg {
+  background-color: $background;
+  border: 2px solid $border;
+  border-radius: 10px;
+}
+
 //GENERAL
 
 * {
@@ -24,6 +32,11 @@ img {
 .app {
  display: flex;
  flex-direction: column;
+}
+
+.output-container {
+  display: flex;
+  flex-direction: column;
 }
 
 //BACKGROUND
@@ -70,11 +83,10 @@ img {
 //INPUT
 
 .input-container {
+  @include shaded-bg;
   display: grid;
-  background-color: $background;
-  border: 2px solid $border;
-  border-radius: 10px;
-  width: 300px;
+  width: 90%;
+  max-width: 300px;
   padding: 1em;
   margin: 2em auto;
 }
@@ -108,7 +120,63 @@ img {
   background-color: rgba(0,0,0, 0.6);
 }
 
+@media (max-width: 340px) {
+  .zip-label {
+    font-size: 1rem;
+  }
+}
+
 //CURRENT
+
+.current-container {
+  @include shaded-bg;
+  display: grid;
+  grid-template-rows: min-content 2em 8em 2em 2em 2em;
+  grid-template-areas:
+    "icon"
+    "description"
+    "temp"
+    "feels-like"
+    "humidity"
+    "wind-speed";
+  justify-items: center;
+  align-items: center;
+  max-width: 90%;
+  padding: 1em;
+  margin: 0 auto;
+}
+
+.current-container p {
+  margin: 0;
+}
+
+.current-icon {
+  grid-area: icon;
+  margin-bottom: 1em;
+}
+
+.current-temp {
+  grid-area: temp;
+  font-size: 8rem;
+  font-weight: 700;
+}
+
+.current-feels-like {
+  grid-area: feels-like;
+}
+
+.current-description {
+  grid-area: description;
+  font-size: 1.75rem;
+}
+
+.current-humidity {
+  grid-area: humidity;
+}
+
+.current-wind-speed {
+  grid-area: wind-speed;
+}
 
 //HOURLY
 
@@ -124,6 +192,8 @@ img {
 
 .hour-display-container {
   grid-row: 2;
+  @include shaded-bg;
+
 }
 
 .hour-icon {
@@ -140,6 +210,7 @@ img {
 
 .day-display-container {
   grid-row: 2;
+  @include shaded-bg;
 }
 
 .day-icon {

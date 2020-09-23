@@ -17,13 +17,12 @@ function Current(props) {
   
   return (
     <div className="current-container">
-      <h1>Current Weather</h1>
       <img src={props.currentWeather + ".png"} alt="weather icon" className="current-icon" />
-      <p>Current Temp: {Math.round(current.temp)}&deg;F</p>
-      <p>Conditions: {description}</p>
-      <p>Feels Like: {Math.round(current.feels_like)}&deg;F</p>
-      <p>Humidity: {current.humidity}%</p>
-      <p>Wind Speed: {Math.round(current.wind_speed)}mph</p>
+      <p className="current-temp">{Math.round(current.temp)}&deg;</p>
+      <p className="current-feels-like">Feels Like {Math.round(current.feels_like)}&deg;</p>
+      <p className="current-description">{description}</p>
+      <p className="current-humidity">Humidity: {current.humidity}%</p>
+      <p className="current-wind-speed">Wind Speed: {Math.round(current.wind_speed)}mph</p>
     </div>
   );
 }
