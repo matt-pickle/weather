@@ -143,7 +143,7 @@ img {
   align-items: center;
   max-width: 90%;
   padding: 1em;
-  margin: 0 auto;
+  margin: 0 auto 3em;
 }
 
 .current-container p {
@@ -161,6 +161,10 @@ img {
   font-weight: 700;
 }
 
+.degree {
+  font-weight: 400;
+}
+
 .current-feels-like {
   grid-area: feels-like;
 }
@@ -168,6 +172,7 @@ img {
 .current-description {
   grid-area: description;
   font-size: 1.75rem;
+  text-transform: capitalize;
 }
 
 .current-humidity {
@@ -183,21 +188,77 @@ img {
 .hourly-container {
   display: grid;
   grid-template-rows: auto auto;
-  grid-template-columns: repeat(48, auto);
+  margin-bottom: 3em;
+}
+
+.hour-displays-container {
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: repeat(48, 11em);
+  grid-column-gap: .5em;
+  padding: 0 1em .5em;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  scrollbar-color: $border $background;
+}
+
+.hour-displays-container::-webkit-scrollbar {
+  width: .25em;
+  height: .75em;
+}
+
+.hour-displays-container::-webkit-scrollbar-track {
+  background: $background;
+}
+
+.hour-displays-container::-webkit-scrollbar-thumb {
+  background: $border;
+  border: none;
 }
 
 .section-title {
   grid-row: 1;
+  @include shaded-bg;
+  width: 9em;
+  text-align: center;
+  margin: 0 0 .25em .5em;
 }
 
 .hour-display-container {
   grid-row: 2;
   @include shaded-bg;
-
+  display: grid;
+  grid-template-rows: 3em 3em min-content min-content 5em repeat(4, 2em);
+  justify-items: center;
+  align-items: center;
+  padding: 1em;
 }
 
-.hour-icon {
-  width: 50px;
+.hour-display-container p {
+  margin: 0;
+}
+
+.hourly-hour,
+.hourly-day {
+  font-size: 2rem;
+  margin: 0;
+}
+
+.hourly-icon {
+  width: 100%;
+  margin: 1em 0;
+}
+
+.hourly-description {
+  font-size: 1.5rem;
+  text-align: center;
+  text-transform: capitalize;
+  line-height: 1.25;
+}
+
+.hourly-temp {
+  font-weight: 700;
+  font-size: 4rem;
 }
 
 //DAILY

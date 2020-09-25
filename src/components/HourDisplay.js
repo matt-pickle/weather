@@ -54,14 +54,15 @@ function HourDisplay(props) {
 
   return (
     <div className="hour-display-container">
-      <h2>{weekDay}, {hourConverted}{ampm}</h2>
-      <img src={icon} alt="weather icon" className="hour-icon" />
-      <p>Temp: {Math.round(props.temp)}&deg;F</p>
-      <p>Conditions: {description}</p>
-      <p>Feels Like: {Math.round(props.feels_like)}&deg;F</p>
-      <p>Rain Chance: {Math.round(props.pop)}%</p>
-      <p>Humidity: {props.humidity}%</p>
-      <p>Wind Speed: {Math.round(props.wind_speed)}mph</p>
+      <h2 className="hourly-hour">{hourConverted}{ampm}</h2>
+      <h2 className="hourly-day">{weekDay}</h2>
+      <img src={icon} alt="weather icon" className="hourly-icon" />
+      <p className="hourly-description">{description}</p>
+      <p className="hourly-temp">{Math.round(props.temp)}<span className="degree">&deg;</span></p>
+      <p className="hourly-feels-like">Feels Like {Math.round(props.feels_like)}<span className="degree">&deg;</span></p>
+      <p className="hourly-rain-chance">Rain Chance: {Math.round(props.pop)}%</p>
+      <p className="hourly-humidity">Humidity: {props.humidity}%</p>
+      <p className="hourly-wind-speed">Wind Spd: {Math.round(props.wind_speed)}mph</p>
     </div>
   );
 }

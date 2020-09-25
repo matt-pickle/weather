@@ -18,7 +18,7 @@ function Current(props) {
   return (
     <div className="current-container">
       <img src={props.currentWeather + ".png"} alt="weather icon" className="current-icon" />
-      <p className="current-temp">{Math.round(current.temp)}&deg;</p>
+      <p className="current-temp">{Math.round(current.temp)}<span className="degree">&deg;</span></p>
       <p className="current-feels-like">Feels Like {Math.round(current.feels_like)}&deg;</p>
       <p className="current-description">{description}</p>
       <p className="current-humidity">Humidity: {current.humidity}%</p>
