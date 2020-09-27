@@ -183,15 +183,17 @@ img {
   grid-area: wind-speed;
 }
 
-//HOURLY
+//HOURLY & DAILY
 
-.hourly-container {
+.hourly-container,
+.daily-container {
   display: grid;
   grid-template-rows: auto auto;
   margin-bottom: 3em;
 }
 
-.hour-displays-container {
+.hour-displays-container,
+.day-displays-container {
   display: grid;
   grid-template-rows: auto;
   grid-template-columns: repeat(48, 11em);
@@ -202,16 +204,19 @@ img {
   scrollbar-color: $border $background;
 }
 
-.hour-displays-container::-webkit-scrollbar {
+.hour-displays-container::-webkit-scrollbar,
+.day-displays-container::-webkit-scrollbar {
   width: .25em;
   height: .75em;
 }
 
-.hour-displays-container::-webkit-scrollbar-track {
+.hour-displays-container::-webkit-scrollbar-track,
+.day-displays-container::-webkit-scrollbar-track {
   background: $background;
 }
 
-.hour-displays-container::-webkit-scrollbar-thumb {
+.hour-displays-container::-webkit-scrollbar-thumb,
+.day-displays-container::-webkit-scrollbar-thumb {
   background: $border;
   border: none;
 }
@@ -224,32 +229,44 @@ img {
   margin: 0 0 .25em .5em;
 }
 
-.hour-display-container {
+.hour-display-container,
+.day-display-container {
   grid-row: 2;
   @include shaded-bg;
   display: grid;
-  grid-template-rows: 3em 3em min-content min-content 5em repeat(4, 2em);
+  grid-template-rows: 2.5em 2.5em min-content min-content 5em repeat(4, 2em);
   justify-items: center;
   align-items: center;
   padding: 1em;
 }
 
-.hour-display-container p {
+.right-margin-spacer {
+  grid-column: -1;
+  grid-row: 2;
+  width: .75em;
+}
+
+.hour-display-container p,
+.day-display-container p {
   margin: 0;
 }
 
 .hourly-hour,
-.hourly-day {
-  font-size: 2rem;
+.hourly-day,
+.daily-day,
+.daily-date {
+  font-size: 1.5rem;
   margin: 0;
 }
 
-.hourly-icon {
+.hourly-icon,
+.daily-icon {
   width: 100%;
   margin: 1em 0;
 }
 
-.hourly-description {
+.hourly-description,
+.daily-description {
   font-size: 1.5rem;
   text-align: center;
   text-transform: capitalize;
@@ -261,19 +278,17 @@ img {
   font-size: 4rem;
 }
 
-//DAILY
+//DAILY SPECIFIC
 
-.daily-container {
-  display: grid;
-  grid-template-rows: auto auto;
-  grid-template-columns: repeat(8, auto);
+.day-displays-container {
+  grid-template-columns: repeat(8, 11em);
 }
 
 .day-display-container {
-  grid-row: 2;
-  @include shaded-bg;
+  grid-template-rows: 2.5em 2.5em min-content min-content 5em repeat(3, 2em);
 }
 
-.day-icon {
-  width: 50px;
+.daily-temp {
+  font-weight: 700;
+  font-size: 2rem;
 }
