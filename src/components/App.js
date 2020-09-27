@@ -52,17 +52,17 @@ function App() {
                               el === "Tornado") ?
                               setCurrentWeather("thunderstorm")
     : conditionArr.some(el => el === "Drizzle" || el === "Rain") ? setCurrentWeather("rain")
+    : conditionArr.some(el => el === 804 ||
+                        el === "Fog" ||
+                        el === "Smoke" ||
+                        el === "Mist" ||
+                        el === "Haze" ||
+                        el === "Dust" ||
+                        el === "Sand" ||
+                        el === "Ash") ?
+                        setCurrentWeather("cloudy")
     : conditionArr.includes("Night") ? setCurrentWeather("night")
     : conditionArr.some(el => el === 802 || el === 803) ? setCurrentWeather("partly-cloudy")
-    : conditionArr.some(el => el === 804 ||
-                              el === "Fog" ||
-                              el === "Smoke" ||
-                              el === "Mist" ||
-                              el === "Haze" ||
-                              el === "Dust" ||
-                              el === "Sand" ||
-                              el === "Ash") ?
-                              setCurrentWeather("cloudy")
     : conditionArr.some(el => el === "Clear" || el === 801) ? setCurrentWeather("sunny")
     : setCurrentWeather("");
   }
@@ -80,7 +80,7 @@ function App() {
           <Hourly weatherObj={weatherObj} />
           <Daily weatherObj={weatherObj} />
         </div>
-      : "Awaiting input..."
+      : null
       }      
     </div>
   );

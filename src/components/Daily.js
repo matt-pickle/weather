@@ -20,7 +20,10 @@ function Daily(props) {
   return (
     <div className="daily-container">
       <h1 className="section-title">7 Day Forecast</h1>
-      {dayDisplays}
+      <div className="day-displays-container">
+        {dayDisplays}
+        <div className="right-margin-spacer"></div>
+      </div>
     </div>
   );
 }

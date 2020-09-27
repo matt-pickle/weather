@@ -34,20 +34,26 @@ function HourDisplay(props) {
       conditionArr.push(item.main, item.id);
     });
     console.log(conditionArr);
+    //Checks for night time
+    const now = props.dt;
+    if (now < props.sunrise || (now > props.sunset && now < props.tomorrowSunrise)) {
+      conditionArr.push("Night");
+    }
     //Selects icon based on weather conditions
     conditionArr.includes("Snow") ? setIcon("snow.png")
     : conditionArr.some(el => el === "Thunderstorm" || el === "Squall" || el === "Tornado") ? setIcon("thunderstorm.png")
     : conditionArr.some(el => el === "Drizzle" || el === "Rain") ? setIcon("rain.png")
-    : conditionArr.some(el => el === 802 || el === 803) ? setIcon("partly-cloudy.png")
     : conditionArr.some(el => el === 804 ||
-                              el === "Fog" ||
-                              el === "Smoke" ||
-                              el === "Mist" ||
-                              el === "Haze" ||
-                              el === "Dust" ||
-                              el === "Sand" ||
-                              el === "Ash") ?
-                              setIcon("cloudy.png")
+                        el === "Fog" ||
+                        el === "Smoke" ||
+                        el === "Mist" ||
+                        el === "Haze" ||
+                        el === "Dust" ||
+                        el === "Sand" ||
+                        el === "Ash") ?
+                        setIcon("cloudy.png")
+    : conditionArr.includes("Night") ? setIcon("night.png")
+    : conditionArr.some(el => el === 802 || el === 803) ? setIcon("partly-cloudy.png")
     : conditionArr.some(el => el === "Clear" || el === 801) ? setIcon("sunny.png")
     : setIcon("");
   }, []);

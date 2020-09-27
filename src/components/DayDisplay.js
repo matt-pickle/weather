@@ -50,14 +50,15 @@ function DayDisplay(props) {
 
   return (
     <div className="day-display-container">
-      <h2>{weekDay}, {month}-{date}</h2>
-      <img src={icon} alt="weather icon" className="day-icon" />
-      <p>High: {Math.round(props.max)}&deg;F</p>
-      <p>Low: {Math.round(props.min)}&deg;F</p>
-      <p>Conditions: {description}</p>
+      <h2 className="daily-day">{weekDay}</h2>
+      <h2 className="daily-date">{month}-{date}</h2>
+      <img src={icon} alt="weather icon" className="daily-icon" />
+      <p className="daily-description">{description}</p>
+      <p className="daily-temp">{Math.round(props.max)}<span className="degree">&deg;</span>
+        /{Math.round(props.min)}<span className="degree">&deg;</span></p>
       <p>Rain Chance: {Math.round(props.pop)}%</p>
       <p>Humidity: {props.humidity}%</p>
-      <p>Wind Speed: {Math.round(props.wind_speed)}mph</p>
+      <p>Wind Spd: {Math.round(props.wind_speed)}mph</p>
     </div>
   );
 }

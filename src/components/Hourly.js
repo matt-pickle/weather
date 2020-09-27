@@ -12,6 +12,9 @@ function Hourly(props) {
                         pop={hour.pop}
                         humidity={hour.humidity}
                         wind_speed={hour.wind_speed}
+                        sunrise={props.weatherObj.current.sunrise}
+                        sunset={props.weatherObj.current.sunset}
+                        tomorrowSunrise={props.weatherObj.daily[1].sunrise}
                         key={hour.dt}
            />
   });
@@ -21,6 +24,7 @@ function Hourly(props) {
       <h1 className="section-title">Hourly Forecast</h1>
       <div className="hour-displays-container">
         {hourDisplays}
+        <div className="right-margin-spacer"></div>
       </div>
     </div>
   );
