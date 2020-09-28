@@ -27,7 +27,7 @@ function DayDisplay(props) {
     });
     //Creates array of weather conditions
     let conditionArr = [];
-    props.weather.map(item => {
+    props.weather.forEach(item => {
       conditionArr.push(item.main, item.id);
     });
     //Selects icon based on weather conditions

@@ -37,7 +37,7 @@ function App() {
     //Creates array of current weather conditions
     const current = data.current;
     let conditionArr = [];
-    current.weather.map(item => {
+    current.weather.forEach(item => {
       conditionArr.push(item.main, item.id);
     });
     //Checks for night time

@@ -30,7 +30,7 @@ function HourDisplay(props) {
     });
     //Creates array of weather conditions
     let conditionArr = [];
-    props.weather.map(item => {
+    props.weather.forEach(item => {
       conditionArr.push(item.main, item.id);
     });
     console.log(conditionArr);
