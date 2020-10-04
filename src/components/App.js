@@ -15,7 +15,7 @@ function App() {
       if (res.ok) {
         res.json().then(data => {
           //Get weather data from coordinates
-          fetch(`http://api.openweathermap.org/data/2.5/onecall?lat=${data.coord.lat}&lon=${data.coord.lon}&units=imperial&appid=${process.env.REACT_APP_WEATHER_KEY}`)
+          fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${data.coord.lat}&lon=${data.coord.lon}&units=imperial&appid=${process.env.REACT_APP_WEATHER_KEY}`)
           .then(res => {
             if (res.ok) {
               res.json().then(data => {
