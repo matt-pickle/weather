@@ -292,3 +292,59 @@ img {
   font-weight: 700;
   font-size: 2rem;
 }
+
+@media (max-width: 600px) {
+  .hour-displays-container,
+  .day-displays-container {
+    grid-template-columns: repeat(48, 6em);
+    grid-column-gap: .5em;
+    padding: 0 1em .5em;
+  }
+
+  .hour-display-container {
+    grid-template-rows: 1.5em 1.5em min-content min-content 3.25em repeat(4, 1em);
+    padding: .25em;
+  }
+
+  .day-display-container {
+    grid-template-rows: 1.5em 1.5em min-content min-content 2.5em repeat(3, 1em);
+    padding: .25em;
+  }
+
+  .hourly-hour,
+  .hourly-day,
+  .daily-day,
+  .daily-date {
+    font-size: 1rem;
+  }
+
+  .hourly-icon,
+  .daily-icon {
+    width: 90%;
+    margin: .25em 0;
+  }
+
+  .hourly-description,
+  .daily-description {
+    font-size: 1rem;
+    line-height: 1.25;
+  }
+
+  .hourly-temp {
+    font-size: 2.5rem;
+  }
+
+  .daily-temp {
+    font-size: 1.25rem;
+  }
+
+  .hourly-feels-like,
+  .hourly-rain-chance,
+  .hourly-humidity,
+  .hourly-wind-speed,
+  .daily-rain-chance,
+  .daily-humidity,
+  .daily-wind-speed {
+    font-size: .65rem;
+  }
+}
