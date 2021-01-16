@@ -66,7 +66,7 @@ function HourDisplay(props) {
       <p className="hourly-description">{description}</p>
       <p className="hourly-temp">{Math.round(props.temp)}<span className="degree">&deg;</span></p>
       <p className="hourly-feels-like">Feels Like {Math.round(props.feels_like)}<span className="degree">&deg;</span></p>
-      <p className="hourly-rain-chance">Rain Chance: {Math.round(props.pop)}%</p>
+      <p className="hourly-rain-chance">Rain Chance: {Math.round(props.pop * 100)}%</p>
       <p className="hourly-humidity">Humidity: {props.humidity}%</p>
       <p className="hourly-wind-speed">Wind Spd: {Math.round(props.wind_speed)}mph</p>
     </div>

@@ -56,7 +56,7 @@ function DayDisplay(props) {
       <p className="daily-description">{description}</p>
       <p className="daily-temp">{Math.round(props.max)}<span className="degree">&deg;</span>
         /{Math.round(props.min)}<span className="degree">&deg;</span></p>
-      <p className="daily-rain-chance">Rain Chance: {Math.round(props.pop)}%</p>
+      <p className="daily-rain-chance">Rain Chance: {Math.round(props.pop * 100)}%</p>
       <p className="daily-humidity">Humidity: {props.humidity}%</p>
       <p className="daily-wind-speed">Wind Spd: {Math.round(props.wind_speed)}mph</p>
     </div>
