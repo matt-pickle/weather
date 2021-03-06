@@ -36,7 +36,9 @@ function HourDisplay(props) {
     console.log(conditionArr);
     //Checks for night time
     const now = props.dt;
-    if (now < props.sunrise || (now > props.sunset && now < props.tomorrowSunrise)) {
+    if (now < props.sunrise ||
+        now > props.sunset && now < props.tomorrowSunrise ||
+        now > props.tomorrowSunset && now < props.dayAfterTomorrowSunrise) {
       conditionArr.push("Night");
     }
     //Selects icon based on weather conditions

@@ -15,6 +15,8 @@ function Hourly(props) {
                         sunrise={props.weatherObj.current.sunrise}
                         sunset={props.weatherObj.current.sunset}
                         tomorrowSunrise={props.weatherObj.daily[1].sunrise}
+                        tomorrowSunset={props.weatherObj.daily[1].sunset}
+                        dayAfterTomorrowSunrise={props.weatherObj.daily[2].sunrise}
                         key={hour.dt}
            />
   });
