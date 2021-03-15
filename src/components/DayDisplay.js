@@ -1,9 +1,7 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 
 function DayDisplay(props) {  
-  const [description, setDescription] = useState("");
-  const [icon, setIcon] = useState("");
-
+  
   const now = new Date(props.dt * 1000);
   const day = now.getDay();
   const weekDay = day === 0 ? "Sunday"
@@ -16,37 +14,41 @@ function DayDisplay(props) {
   const month = now.getMonth() + 1;
   const date = now.getDate();
   
-  useEffect(() => {
-    //Creates weather description string
-    props.weather.forEach((item, index) => {
-      if (index === 0) {
-        setDescription(item.description);
-      } else {
-        setDescription(description + ", " + item.description);
-      }
-    });
-    //Creates array of weather conditions
-    let conditionArr = [];
-    props.weather.forEach(item => {
-      conditionArr.push(item.main, item.id);
-    });
-    //Selects icon based on weather conditions
-    conditionArr.includes("Snow") ? setIcon("snow.png")
-    : conditionArr.some(el => el === "Thunderstorm" || el === "Squall" || el === "Tornado") ? setIcon("thunderstorm.png")
-    : conditionArr.some(el => el === "Drizzle" || el === "Rain") ? setIcon("rain.png")
-    : conditionArr.some(el => el === 802 || el === 803) ? setIcon("partly-cloudy.png")
-    : conditionArr.some(el => el === 804 ||
-                              el === "Fog" ||
-                              el === "Smoke" ||
-                              el === "Mist" ||
-                              el === "Haze" ||
-                              el === "Dust" ||
-                              el === "Sand" ||
-                              el === "Ash") ?
-                              setIcon("cloudy.png")
-    : conditionArr.some(el => el === "Clear" || el === 801) ? setIcon("sunny.png")
-    : setIcon("");
-  }, []);
+ 
+  //Creates weather description string
+  let description = "";
+  props.weather.forEach((item, index) => {
+    if (index === 0) {
+      description = item.description;
+    } else {
+      description = description + ", " + item.description;
+    }
+  });
+
+  //Creates array of weather conditions
+  let conditionArr = [];
+  props.weather.forEach(item => {
+    conditionArr.push(item.main, item.id);
+  });
+
+  //Selects icon based on weather conditions
+  let icon = "";
+  conditionArr.includes("Snow") ? icon = "snow.png"
+  : conditionArr.some(el => el === "Thunderstorm" || el === "Squall" || el === "Tornado") ? icon = "thunderstorm.png"
+  : conditionArr.some(el => el === "Drizzle" || el === "Rain") ? icon = "rain.png"
+  : conditionArr.some(el => el === 802 || el === 803) ? icon = "partly-cloudy.png"
+  : conditionArr.some(el => el === 804 ||
+                            el === "Fog" ||
+                            el === "Smoke" ||
+                            el === "Mist" ||
+                            el === "Haze" ||
+                            el === "Dust" ||
+                            el === "Sand" ||
+                            el === "Ash") ?
+                            icon = "cloudy.png"
+  : conditionArr.some(el => el === "Clear" || el === 801) ? icon = "sunny.png"
+  : icon = "";
+ 
 
   return (
     <div className="day-display-container">

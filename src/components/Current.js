@@ -1,19 +1,18 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 
 function Current(props) { 
   const current = props.weatherObj.current;
-  const [description, setDescription] = useState("");
   
-  useEffect(() => {
-    //Creates weather description string
-    current.weather.forEach((item, index) => {
-      if (index === 0) {
-        setDescription(item.description);
-      } else {
-        setDescription(description + ", " + item.description);
-      }
-    });
-  }, []);
+  //Creates weather description string
+  let description = "";
+  current.weather.forEach((item, index) => {
+    if (index === 0) {
+      description = item.description;
+    } else {
+      description = description + ", " + item.description;
+    }
+  });
+  
   
   return (
     <div className="current-container">
